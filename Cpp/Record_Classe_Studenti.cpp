@@ -1,27 +1,35 @@
+/*/- librerie -/*/
 #include <iostream>
 #include <string>
 using namespace std;
+
+/*/- inizializzazione della struttura 'struct' -/*/
 struct studente{
 	string cognome;
 	string nome;
 	float voto;
 };
+
+/*/- inizializzazione variabili globali -/*/
 studente classe[40];
 int n;
+
+/*/- funzione per riempire la struttura 'struct' -/*/
 void carica(){
 	int i;
-	cout<<"Inserisci numero studenti"<<endl;
+	cout<<"Inserisci il numero dei studenti: ";
 	cin>>n;
 	for(i=0;i<n;i++){
-		cout<<"inserisci cognome in posizione"<<i+1<<endl;
+		cout<<"Inserisci il cognome in posizione "<<i+1<<endl;
 		cin>>classe[i].cognome;
-		cout<<"inserisci nome in posizione"<<i+1<<endl;
+		cout<<"Inserisci il nome in posizione "<<i+1<<endl;
 		cin>>classe[i].nome;
-		cout<<"inserisci voto in posizione"<<i+1<<endl;
+		cout<<"Inserisci il voto in posizione "<<i+1<<endl;
 		cin>>classe[i].voto;
 	}
 }
-void voto_max(){
+
+/*/- calcolo del voto massimo con output del cognome dello studente con il voto più alto -/*/void voto_max(){
 	int i,pos=0;
 	float voto_max=classe[0].voto;
 	for(i=1;i<n;i++){
@@ -32,8 +40,11 @@ void voto_max(){
 		}
 			
 	}
-	cout<<"cognome studente con voto max: "<<classe[pos].cognome<<endl;
+	cout<<"Il cognome dello studente con il voto piu' alto e': "<<classe[pos].cognome<<endl;
 }
+
+/*/- calcolo del totale degli alunni insufficienti con output del cognome,cognome,voto dell'alunno insufficiente 
+e l'output della quantità di alunni insufficienti -/*/ 
 void stud_insuff(){
 	int con_insuff=0;
 	for(int cont=0;cont<n;cont++){
@@ -44,6 +55,8 @@ void stud_insuff(){
 	}
 	cout<<"Il totale degli alunni insufficienti e': "<<con_insuff<<endl;
 }
+
+/*/- calcolo della percentuale  -/*/
 void perc_aaa(){
 	int t=1,v_perc[t];
 	for(int k=0;k<n;k++){
@@ -54,36 +67,25 @@ void perc_aaa(){
 		else{
 			v_perc[k]=classe[k].voto;
 		}	
-	}
-	int min_del_v /* numero minore del vettore */=v_perc[0];                              //      deposito(var) = primo numero                                
-	int mass_del_v /* numero massimo del vettore */=v_perc[0];                            //      primo numero = secondo numero                               
-	int deposito;                                                                         //      secondo numero = deposito                                     
-	for(int p=0;p<n-1;p++){
-		for(int q=p+1;q<n;q++){
-			if(v_perc[p]>v_perc[q]){
-				deposito=v_perc[p];
-				v_perc[p]=v_perc[q];
-				v_perc[q]=deposito;
-			}
+	}	
+	
+	//n = totale dei voti nela classe (neg e pos)
+	int tot_v_insuff=0;
+	for(int cont=0;cont<n;cont++){
+		if(classe[cont].voto<6){
+			tot_v_insuff++;
 		}
 	}
-	for(int j=0;j<t;j++){
-		if(min_del_v>v_perc[j]){
-			min_del_v=v_perc[j];
-			if(mass_del_v<v_perc[j]){
-				mass_del_v=v_perc[j];
-			}
-		}
-	}
-	int sot;/* sottrazione tra il massimo e il minimo dei numeri contenuti nell'array */
-	sot=mass_del_v-min_del_v;
-	cout<<"-->"<<sot<<"<-- Rappresenta il range di questo insieme numerico \n";
+	float incognita;
+	incognita=(tot_v_insuff*100)/n;
+	cout<<"La percentuale dei voti insufficienti e' del "<<incognita<<"%\n";
 }
-int main(){
+
+int main(){/*/- inizio main -/*/
 	carica();
 	voto_max();
 	stud_insuff();
 	perc_aaa();
 	
 	return 0;
-}
+}/*/- fine main -/*/
