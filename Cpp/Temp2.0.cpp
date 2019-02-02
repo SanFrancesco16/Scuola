@@ -29,8 +29,8 @@ class giorno{
 };
 int main(){
 	giorno sett[G];
-	float unatemp;
 	int scelta;
+	int presente=0;
 	
 	do{
 		cout<<"PROGRAMMA TEMPERATURE\n\n0.esci\n1.inserimento\n2.ricerce temp piu' basse\n3.Salvataggio su file temp min e temp max\n4.calcola escusione termica per ogni giorno\n5.Salvataggio su file completo\n6.ricerca temp piu' alte\n\nFai una scelta: ";
@@ -47,19 +47,26 @@ int main(){
 				}
 			break;
 			case 2:
+				float tempinser;
+				presente=0;
 				cout<<"Inserisci una temperatura: ";
-				cin>>unatemp;
+				cin>>tempinser;
 				for(int i=0;i<G;i++){
-					if(unatemp>sett[i].getmax()){
+					if(sett[i].getmin()<tempinser){
 						cout<<"temperatura: "<<sett[i].getmin()<<"il giorno: "<<i+1<<endl;
+						presente++;
 					}
-					if(unatemp>sett[i].getmin()){
+					if(sett[i].getmax()<tempinser){
 						cout<<"temperatura: "<<sett[i].getmax()<<"il giorno: "<<i+1<<endl;
+						presente++;
 					}
+				}
+				if(presente==0){
+					cout<<"\nno temp min di quella scelta\n"<<endl;
 				}		
 			break;
 			case 3:
-				f1.open("C:\\Users\\loren\\Desktop\\Temperature_settimanali.txt",ios::out);
+				f1.open("C:\\Users\\Roberto\\Desktop\\Temperature_settimanali.txt",ios::out);
 				for(int i=0;i<G;i++){
 					f1<<"giorno: "<<i+1<<"      temp min: "<<sett[i].getmin()<<"      temp max: "<<sett[i].getmax()<<endl;
 				}
@@ -72,7 +79,7 @@ int main(){
 				}
 			break;
 			case 5:
-				f1.open("C:\\Users\\loren\\Desktop\\Temperature_settimanali.txt",ios::out);
+				f1.open("C:\\Users\\Roberto\\Desktop\\Temperature_settimanali.txt",ios::out);
 				for(int i=0;i<G;i++){
 					f1<<"giorno: "<<i+1<<"      temp min: "<<sett[i].getmin()<<"      temp max: "<<sett[i].getmax()<<"      escursione termica: "<<sett[i].getdiff()<<endl;
 				}
