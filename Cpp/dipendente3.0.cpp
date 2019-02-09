@@ -100,7 +100,7 @@ int main(){
 					cout<<"inserisci nuovo stipendio: ";
 					cin>>nuovo_stipendio;
 					num_dip[i].SetStipendio(nuovo_stipendio);
-					f1.open("C:\\Users\\loren\\Desktop\\file_dipendente.txt",ios::out);
+					f1.open("/*da modificare*/file_dipendente.txt",ios::out);
 					for(int i=0;i<main_cont;i++){
 						f1<<"nome dipendente: "<<num_dip[i].GetNome()<<"    cognome dipendente: "<<num_dip[i].GetCognome()<<"    stipendio dipendente: "<<num_dip[i].GetStipendio()<<endl;
 						f1<<endl;
@@ -125,7 +125,7 @@ int main(){
 			
 			cout<<"Inserisci lo stipendio da utilizzare come base per trovare i dipendenti con stipendio maggiore di quello inserito: ";
 			cin>>stipendio_base;
-			f1.open("C:\\Users\\loren\\Desktop\\file_dipendente.txt",ios::out);
+			f1.open("/*da modificare*/file_dipendente.txt",ios::out);
 			for(int i=0;i<main_cont;i++){
 				if(stipendio_base<num_dip[i].GetStipendio()){
 					contatore_di_supporto++;
@@ -142,7 +142,7 @@ int main(){
 		}
 		break;
 		case 4:
-			f1.open("C:\\Users\\loren\\Desktop\\file_dipendente.txt",ios::out);
+			f1.open("/*da modificare*/file_dipendente.txt",ios::out);
 			for(int i=0;i<main_cont;i++){
 				f1<<"nome dipendente: "<<num_dip[i].GetNome()<<"    cognome dipendente: "<<num_dip[i].GetCognome()<<"    stipendio dipendente: "<<num_dip[i].GetStipendio()<<endl;
 				f1<<endl;
