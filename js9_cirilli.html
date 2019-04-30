@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Uso funzione</title>
+<script>
+function funz(){
+var str1=document.f1.n1.value
+len=str1.length;
+var trovato=false;
+var A=["%","#","?"];
+		for(j=0;j<A.length;j++){
+			if(str1.indexOf(A[j]) != -1){
+				trovato=true;
+				j=A.length;
+			}
+		}
+document.write(trovato);
+alert(trovato);
+}
+</script>
+</head>
+<body>
+<form name="f1"  onsubmit="funz()">
+<input type="text" name="n1"><br>
+<input type="button" onclick="funz()" value="Premi">
+</form>
+
+</body>
+</html>
