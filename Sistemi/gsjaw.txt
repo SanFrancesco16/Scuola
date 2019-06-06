@@ -1,0 +1,55 @@
+IN QUESTO DOCUMENTO VIENE ANALIZZATO IL PROBLEMA DI (SITO) E LE POSSIBILI SOLUZIONI
+
+1) PROBLEMI PRINCIPALI
+	-la navbar (la navbar non funziona nel modo corretto e/o non funziona)
+	-nel sito non viene descritta la struttura(la struttura deve essere descritta in modo da attirare clienti,
+          se il cliente non ha infomazioni, difficilmente si iscriverà)
+	-nel sito sono assenti i contatti(e-mail, telefono)
+ 	-nel sito sono assenti varie informazioni utili
+	-nel sito non è presente una prenotazione online dei corsi offerti( il mercato ormai si è prevalentemente 
+          spostato su internet, senza una prenotazione online non siamo al passo con i tempi )
+   1.1)IL PROBLEMA INFLUENZA I SEGUENTI SOGGETTI:
+	-clienti(sono i clienti abituali della palestra C&M)
+	-casual users(sono gli utenti casuali, cioè coloro che sono in ricerca , in questo caso di una palestra)
+   1.2)NELLE SEGUENTI ATTIVITA':
+	-utilizzare navbar
+	-contattare direttamente la struttura
+	-cercare informazioni
+	-prenotare online
+2)LE CONSEGUENZE SONO:
+	-difficoltà di navigazione nel sito
+	-mancato contatto tra cliente-fornitore
+	-difficoltà di login
+	-gestione e prenotazione dei corsi
+3)LA SOLUZIONE E':
+	-la navbar verrà sostituita con un menù a tenda o verrà creata da zero(verrà completamente revisionata 
+          per offrire un'esperienza di navigazione aggevolata per i meno esperti)
+	-verrà agginta una sezione che descriverà la struttura nel dettaglio(foto aggiornate ogni mese per
+          dare al nuovo cliente la giusta idea della nostra struttura)
+	-verranno aggiunte altre informazioni utili(in continuo aggiornamento, dove verranno scritte su una 
+          pagina apposita, le domande dei vari clienti per chiarire ogni eventuale dubbio)
+	-verrà aggiunta una sezione dedicata ai contatti(verranno aggiunti sul sito i contatti telefonici
+          cellulare, telefono fisso, e-mail) e i vari social(instagram e facebook)
+	-verrà aggiunta una sezione di prenotazione dei corsi online
+	  (facilitata e guidata per gli utenti poco esperti)
+   3.1)VANTAGGI:
+	-navigazione facilitata grazie alla nuova navbar
+	-i clienti ,grazie alla descrizione verranno convinti a scegliere C&M
+	-i clienti potranno contattare direttamente il fornitore per varie informazioni 
+          o prenotazioni(cell,e-mail..)
+	-i clienti potranno prenotare direttamente online 
+4)SOGGETTI INTERESSATI:
+	-casual users
+	-clienti
+	-personale palestra
+	-ditta C&M che realizzerà il nuovo portale e si occuperà della manutenzione/gestrione
+        -banca(da definire) che si occuperà delle transazioni online
+5)VINCOLI:
+	-budget di euro(non definito)
+	-completamento del progetto entro il(09/09/2019)
+	-la parte cliento deve essere accessibile dai principali browser
+	-vietato l'uso di tecnologie proprietarie nel lato client
+	-vietato l'uso di software di terze parti
+	-trattazione dei dati sensibili secondo le norme relative al trattamento dei dati personali.
+          Norme sulla privacy GDPR(regolamento generale sulla protezione dei dati in vigore dal 25 maggio 2018)
+
