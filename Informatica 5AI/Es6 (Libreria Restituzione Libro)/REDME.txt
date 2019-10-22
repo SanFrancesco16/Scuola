@@ -1,0 +1,2 @@
+Una biblioteca ha un file nel quale ci siano 4 numeri i primi 2 giorno e mese del noleggio di un libro gli altri 2 di quando è stato restituito.
+Un altro file su cui scrivere i giorni in cui il libro è stato dato in prestito.
