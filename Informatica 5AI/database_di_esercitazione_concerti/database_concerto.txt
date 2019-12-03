@@ -1,7 +1,7 @@
-//creazione del database "concerto"
-CREATE DATABASE concerto;
 
-//creazione della tabella "concerto"
+CREATE DATABASE concerti;
+
+
 CREATE TABLE concerto(
     codiceC int(7),
     titoloC varchar(20),
@@ -9,7 +9,7 @@ CREATE TABLE concerto(
     PRIMARY KEY(codiceC)
 );
 
-//creazione della tabella "orchestra"
+
 CREATE TABLE orchestra(
     nomeO varchar(10),
     nomeDirettore varchar(10),
@@ -17,7 +17,7 @@ CREATE TABLE orchestra(
     PRIMARY KEY(nomeO)
 );
 
-//creazione della tabella "musicista"
+
 CREATE TABLE musicista(
     CF varchar(11),
     nomeM varchar(10),
@@ -27,30 +27,26 @@ CREATE TABLE musicista(
     PRIMARY KEY(CF)
 );
 
-//creazione della tabella "brano"
+
 CREATE TABLE brano(
     titoloB varchar(20),
     autore varchar(10),
     PRIMARY KEY(titoloB)
 );
 
-//creazione di un nuovo campo (che con il comando successivo 
-//diventerà chiave esterna) "nomeO_fk" della tabella "musicista"
+
 ALTER TABLE musicista
 ADD nomeO_fk varchar(10); 
 
-//alterazione della tabella "musicista" dichiarando che 
-//il campo "nomeO_fk" è una chiave esterna e che è stata 
-//presa dalla tabella "orchestra"
+
 ALTER TABLE musicista
 ADD FOREIGN KEY(nomeO_fk) REFERENCES orchestra(nomeO);
 
-//creazione di un nuovo campo (che con il comando successivo 
-//diventerà chiave esterna) "nomeO_fk" della tabella "concerto"
+
 ALTER TABLE concerto
 ADD nomeO_fk varchar(10);
 
-//creo la tabella "programma" con i vari campi
+
 CREATE TABLE programma(
     codiceC_fk int(7),
     ordine varchar(170),
@@ -59,6 +55,9 @@ CREATE TABLE programma(
     PRIMARY KEY(id_programma) 
 );
 
-//definisco chiave esterna nella tabella "programma"
+
 ALTER TABLE programma
 ADD FOREIGN KEY(codiceC_fk) REFERENCES concerto(codiceC);
+
+ALTER TABLE programma
+ADD FOREIGN KEY(titoloB_fk) REFERENCES brano(titoloB);
