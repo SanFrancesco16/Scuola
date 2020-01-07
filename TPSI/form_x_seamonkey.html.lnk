@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>form</title>
+    </head>
+    <body>
+        <form action="" method="post" enctype="multipart/form-data" id="my_form">
+            Cognome:* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="cognome">
+            <br><br>
+            Nome:* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="nome">
+            <br><br>
+            Sesso:* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sesso_Maschio" value="Maschio">M<input type="radio" name="sesso_Femmina" value="Femmina">F
+            <br><br>
+            Luogo di nascita:* <input type="text" name="luogo_di_nascita">
+            <br><br>
+            Data di nascita:* &nbsp;&nbsp;&nbsp;<input type="text" name="data_di_nascita" value="gg/mm/aaaa">
+            <br><br>
+            Residenza:* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="residenza"><br>                
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inserire la città e la provincia 
+            <br><br>
+            Email:* <input type="text" name="nome">
+            <br><br>
+            Tell/Cell: <input type="text" name="nome">
+            <br><br>
+            Titolo coseguito: <br><br> <input type="radio" name="titolo_conseguito" value="diploma">diploma <br> <input type="radio" name="titolo_conseguito" value="laureando_primo_livello">Laureando 1° livello <br> <input type="radio" name="titolo_conseguito" value="lurea_primo_livello">Laurea I° livello <br> <input type="radio" name="titolo_conseguito" value="lureando_secondo_livello">Laureando II° livello <br> <input type="radio" name="titolo_conseguito" value="lurea_secondo_livello">Lurea II° livello <br>
+            <br><br>
+            Ecdl:* <input type="radio" name="Ecdl_si" value="si">Si<input type="radio" name="Ecdl_no" value="no">No
+            <br><br>
+            Inglese: <br><br> <input type="radio" name="inglese_ottimo" value="Ottimo">Ottimo <br> <input type="radio" name="inglese_buono" value="Buono">Buono <br> <input type="radio" name="inglese_sufficiente" value="Sufficiente">Sufficiente
+            <br><br>
+            Cv:* <input type="file" name="my_file" id="my_file" />
+                 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; è gradita la foto
+            <br><br>
+            <input type="checkbox" name="ATDPASD_D.lgs._196/03" value="ATDPASD_D.lgs._196/03">Autorizzo il trattamento dei dati personali ai sensi del D. lgs. 196/03
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="Invia" value="Invia"> <input type="submit" name="Reset" value="Reset">
+            </form>
+        </form>
+    </body>
+</html>
