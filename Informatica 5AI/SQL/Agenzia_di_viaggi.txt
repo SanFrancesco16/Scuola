@@ -1,0 +1,42 @@
+CREATE DATABASE agenzia_viaggi
+
+
+
+CREATE TABLE cliente (
+    id_cliente varchar(7),
+    nome varchar(12),
+    cognome varchar(12),
+    indirizzo varchar(30),
+    PRIMARY KEY (id_cliente)
+);
+
+
+CREATE TABLE acquisto(
+    id_acquisto varchar(7),
+    data date,
+    Tipo_pagamento varchar(10)
+);
+
+
+
+CREATE TABLE pacchetto(
+    id_pacchetto varchar(10),
+    durata varchar(10),
+    prezzo varchar(5)
+);
+
+CREATE TABLE destinazione(
+    id_destinazione varchar(10),
+    clima varchar(3)
+);
+
+ALTER TABLE acquisto
+ADD FOREIGN KEY (id_cliente_FK) REFERENCES cliente(id_cliente);
+
+
+ALTER TABLE acquisto
+ADD FOREIGN KEY (id_pacchetto_FK) REFERENCES pacchetto(id_pacchetto);
+
+
+ALTER TABLE destinazione
+ADD FOREIGN KEY (id_pacchetto_FK) REFERENCES pacchetto(id_pacchetto);
