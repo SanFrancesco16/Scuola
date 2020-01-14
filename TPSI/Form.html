@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+	<style>
+	.selector {
+	-webkit-box-shadow: 0 3px 5px #333;
+	-moz-box-shadow: 0 3px 5px #333;
+	box-shadow: 0 3px 5px #333;
+	}
+	.selector.noshadow {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	}
+	.box{
+	background: #CFD8DC;
+	text: blue;
+	
+	border-radius: 10px;
+	padding: 20px;
+	}
+	input[type=text], input[type=date]{
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: none;
+	}
+	label {
+    min-width: 150px;
+    color: red;
+    font-weight: 300;
+    margin-top: 10px;
+	}
+	label {
+    cursor: default;
+	}
+	div {
+    display: block;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-info {
+    color: red;
+    background-color: #ef9a9a;
+    border-color: red;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+	</style>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Form</title>
+  </head>
+  <body>
+	
+    <center><h1 style="font-size:300%; color:blue; font-family:Trebuchet MS;">Registrazione</h1></center>
+	<hr>
+	<div class="box">
+    <form action="" method="post" enctype="multipart/form-data"
+      id="my_form"> <p style="color:blue; font-family:Trebuchet MS;"> Cognome:* </p>
+      <input name="cognome" type="text"> 
+      <p style="color:blue; font-family:Trebuchet MS;"> Nome:* </p>
+      <input name="nome" type="text"> <br>
+	   <p style="color:blue; font-family:Trebuchet MS;"> Seleziona la tua data di nascita:* </p>
+      <input type="date" name="date"> 
+      
+      <p style="color:blue; font-family:Trebuchet MS;"> Sesso:* </p>
+
+	  <input name="genere" value="Maschio" type="radio">M
+	  <input name="genere" value="Femmina" type="radio">F 
+	  
+      <p style="color:blue; font-family:Trebuchet MS;"> Luogo di nascita:* </p> <input name="luogo_di_nascita" type="text"> 
+      
+      
+      <p style="color:blue; font-family:Trebuchet MS;"> Provincia:* </p>
+      <input
+        name="residenza" type="text"><br>
+		<p style="color:blue; font-family:Trebuchet MS;"> Città:* </p>
+      <input
+        name="citta" type="text"><br>
+      
+      <p style="color:blue; font-family:Trebuchet MS;"> Email:* </p> <input name="nome" type="text">
+      
+      <p style="color:blue; font-family:Trebuchet MS;"> Tell/Cell:* </p> <input name="nome" type="text"> 
+      
+      <p style="color:blue; font-family:Trebuchet MS;"> Titolo conseguito:* </p>
+      
+      <input name="titolo_conseguito" value="diploma" type="radio">diploma
+      <br>
+      <input name="titolo_conseguito" value="laureando_primo_livello"
+        type="radio">Laureando 1° livello <br>
+      <input name="titolo_conseguito" value="lurea_primo_livello"
+        type="radio">Laurea I° livello <br>
+      <input name="titolo_conseguito" value="lureando_secondo_livello"
+        type="radio">Laureando II° livello <br>
+      <input name="titolo_conseguito" value="lurea_secondo_livello"
+        type="radio">Laurea II° livello <br>
+      
+      
+      <p style="color:blue; font-family:Trebuchet MS;"> Livello di inglese:* </p>
+      
+      <input name="livello_inglese" value="Ottimo" type="radio">Ottimo <br>
+      <input name="livello_inglese" value="Buono" type="radio">Buono <br>
+      <input name="livello_inglese" value="Sufficiente" type="radio">Sufficiente
+
+      
+    
+      <p style="color:blue; font-family:Trebuchet MS;"> Cv:* </p> <input name="my_file" id="my_file" type="file"> <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; è gradita la foto
+      <br>
+      <br>
+      <input name="ATDPASD_D.lgs._196/03" value="ATDPASD_D.lgs._196/03"
+        type="checkbox">Autorizzo il trattamento dei dati personali ai
+      sensi del D. lgs. 196/03 <br>
+      <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <input name="Invia" value="Procedi" type="submit">
+      <input name="Reset" value="Reset" type="submit"> </form>
+	  <style>
+		.riquadro{
+			border-style: solid;
+	border-width: 1px;
+		border-color: blue;
+		background: #c7fff3;
+		border-radius: 5px;
+		}
+	  </style>
+	  
+	<br>
+	<div class="alert alert-info">I campi contrassegnati con * sono obbligatori. Invece i campi non contrassegnati sono facoltativi</div>
+  </form>
+  </div>
+  </body>
+</html>
