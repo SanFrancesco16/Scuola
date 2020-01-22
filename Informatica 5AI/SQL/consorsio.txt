@@ -1,0 +1,55 @@
+CREATE DATABASE consorsioooo;
+CREATE TABLE cliente(
+    id_cliente int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    tipo int(1)    
+);
+CREATE TABLE localita(
+    id_localita int(6) PRIMARY KEY AUTO_INCREMENT,
+	nome varchar(20),
+    sigla char(2)
+);
+CREATE TABLE caseificio(
+    id_caseificio int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    indirizzo varchar(20),
+    titolare varchar(20),
+    telefono varchar(20),
+    email varchar(20),
+    latitudine double,
+    longitudine double,
+    id_localita_FK int(6),
+    FOREIGN KEY (id_localita_FK) REFERENCES localita(id_localita)
+);
+CREATE TABLE forme(
+    id_forma int(6) PRIMARY KEY AUTO_INCREMENT,
+    prograssivo int(6),
+    data date,
+    stagionatura int(6),
+    scelta int(1),
+    giorno int(2),
+    mese int(2),
+    anno int(4),
+    id_cliente_FK int(6),
+    id_caseificio_FK int(6),
+	FOREIGN KEY (id_cliente_FK) REFERENCES cliente(id_cliente),
+    FOREIGN KEY (id_caseificio_FK) REFERENCES caseificio(id_caseificio)
+);
+CREATE TABLE attivita(
+    id_attivita int(6) PRIMARY KEY AUTO_INCREMENT,
+    latte_lavorato int(8),
+    latte_impiegato int(8),
+    forme_prodotte_prima int(8),
+    forme_prodotte_seconda int(8),
+    forme_prodotte int(4),    
+    forme_vendute int(4),
+    data date,
+    id_caseificio_FK int(6),
+    FOREIGN KEY (id_caseificio_FK) REFERENCES caseificio(id_caseificio)
+    );
+CREATE TABLE immagini(
+    id_immagine int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    id_caseificio_FK int(6),
+    FOREIGN KEY (id_caseificio_FK) REFERENCES caseificio(id_caseificio)
+    );
