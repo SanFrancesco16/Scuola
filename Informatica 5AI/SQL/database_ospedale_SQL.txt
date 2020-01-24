@@ -9,7 +9,8 @@ CREATE TABLE visita(
     codice_FK varchar(7),
     data date,
     esito varchar(10),
-    id varchar(7)
+    id varchar(7),
+    PRIMARY KEY (id)
 );
 CREATE TABLE medico(
     id_FK varchar(7),
@@ -17,14 +18,16 @@ CREATE TABLE medico(
     nome varchar(12),
     cognome varchar(12),
     data date,
-    luogo_nascita varchar(20)
+    luogo_nascita varchar(20),
+    PRIMARY KEY (codice)
 );
 CREATE TABLE esame(
     id varchar(7),
     tipo varchar(20),
     data date,
     esito varchar(10),
-    codice_FK varchar(7)
+    codice_FK varchar(7),
+    PRIMARY KEY (id)
 );
 CREATE TABLE paziente(
     codice varchar(7),
@@ -34,5 +37,14 @@ CREATE TABLE paziente(
     data_nascita date,
     luogo_nascita varchar(10),
     sesso char(1),
-    data_ricovero date
+    data_ricovero date,
+    PRIMARY KEY (codice)    
 );
+ALTER TABLE medico
+ADD FOREIGN KEY (id_FK) REFERENCES reparto(id);
+ALTER TABLE visita
+ADD FOREIGN KEY (codice1_FK) REFERENCES medico(codice);
+ALTER TABLE visita
+ADD FOREIGN KEY (codice_FK) REFERENCES paziente(codice);
+ALTER TABLE esame
+ADD FOREIGN KEY (codice_FK) REFERENCES paziente(codice);
