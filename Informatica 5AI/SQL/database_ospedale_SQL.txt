@@ -1,0 +1,38 @@
+CREATE DATABASE ospedale;
+CREATE TABLE reparto(
+    id varchar(7),
+    nome varchar(12),
+    PRIMARY KEY (id)
+);
+CREATE TABLE visita(
+    codice1_FK varchar(7),
+    codice_FK varchar(7),
+    data date,
+    esito varchar(10),
+    id varchar(7)
+);
+CREATE TABLE medico(
+    id_FK varchar(7),
+    codice varchar(7),
+    nome varchar(12),
+    cognome varchar(12),
+    data date,
+    luogo_nascita varchar(20)
+);
+CREATE TABLE esame(
+    id varchar(7),
+    tipo varchar(20),
+    data date,
+    esito varchar(10),
+    codice_FK varchar(7)
+);
+CREATE TABLE paziente(
+    codice varchar(7),
+    nome varchar(12),
+    cognome varchar(12),
+    CF varchar(16),
+    data_nascita date,
+    luogo_nascita varchar(10),
+    sesso char(1),
+    data_ricovero date
+);
