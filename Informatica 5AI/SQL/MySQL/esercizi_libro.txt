@@ -1,0 +1,74 @@
+CREATE DATABASE esercizi_SQL;
+CREATE TABLE fornitori(
+	cod_f varchar(30) PRIMARY KEY,
+	nome_f varchar(20),
+	citta varchar(20),
+	anno_nascita int(4) 
+);
+
+INSERT INTO fornitori(cod_f,nome_f,citta,anno_nascita)
+VALUES('MSSLSS01R26H501G','alessio','roma',2001);
+
+SELECT *
+FROM fornitori
+WHERE citta='torino';
+
+SELECT *
+FROM fornitori
+WHERE citta='genova'AND anno_nascita>1980;
+
+SELECT cod_f
+FROM fornitori;
+
+SELECT cod_f,nome_f
+FROM fornitori;
+
+
+
+CREATE TABLE proprietario(
+	    cod_p int(6) PRIMARY KEY,
+        cognome varchar(20)
+);
+
+CREATE TABLE auto(
+	    targa varchar(8) PRIMARY KEY,
+        cilindrata int(10),
+        prezzo int(10),
+        modello varchar(20),
+        colore varchar(20),
+        alimentazione varchar(20),
+	    cod_p_FK int(6),
+        FOREIGN KEY(cod_p_FK)REFERENCES proprietario(cod_p)
+);
+
+
+SELECT cognome,targa
+FROM proprietario,auto
+WHERE(proprietario.cod_p=auto.cod_p_fk);
+
+INSERT INTO auto(targa,cilindrata,prezzo,modello,colore,alimentazione)
+VALUES('cd564ba',1200,11000,'punto','bianco','benzina');
+INSERT INTO auto(targa,cilindrata,prezzo,modello,colore,alimentazione)
+VALUES('ab001lx',1200,11000,'punto','bianco','benzina');
+INSERT INTO auto(targa,cilindrata,prezzo,modello,colore,alimentazione)
+VALUES('ed563fa',1200,11000,'punto','bianco','benzina');
+
+UPDATE auto
+SET colore='rosso'
+WHERE targa='cd564ba';
+
+UPDATE auto
+SET prezzo='prezzo*1.1'
+WHERE modello='punto';
+
+DELETE  
+FROM auto 
+WHERE targa='ab001lx';
+
+SELECT targa,modello,prezzo
+FROM auto;
+
+SELECT * 
+FROM auto 
+WHERE prezzo <20000;
+

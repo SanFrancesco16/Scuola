@@ -1,0 +1,73 @@
+CREATE DATABASE film;
+CREATE TABLE regista(
+    id_regista int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    cognome varchar(20),
+    data_nascita date,
+    luogo_nascita varchar(20)
+    );
+CREATE TABLE attore(
+    id_attore int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    cognome varchar(20),
+    data_nascita date,
+    luogo_nascita varchar(20),
+    foto blob
+    );
+CREATE TABLE film(
+    id_film int(6) PRIMARY KEY AUTO_INCREMENT,
+    titolo varchar(20),
+    anno_prod int(4),
+    nazionalita varchar(20),
+    lingua varchar(20),
+    id_regista_FK int(6),
+    FOREIGN KEY (id_regista_FK) REFERENCES regista(id_regista)
+    );
+CREATE TABLE supporto(
+    id_supporto int(6),
+    posizione varchar(20),
+    id_film_FK int(6),
+    FOREIGN KEY (id_film_FK) REFERENCES film(id_film)
+    );
+CREATE TABLE attore_film(
+    id_attore_film int(6) PRIMARY KEY AUTO_INCREMENT,
+    id_film_FK int(6),
+    id_attore_FK int(6),
+    FOREIGN KEY (id_film_FK) REFERENCES film(id_film),
+    FOREIGN KEY (id_attore_FK) REFERENCES attore(id_attore)
+    );
+
+INSERT INTO regista(id_regista,nome,cognome,data_nascita,luogo_nascita)
+    VALUES(748392,'pluto','cirilli','1955-12-12','Roma');
+INSERT INTO regista(id_regista,nome,cognome,data_nascita,luogo_nascita)
+    VALUES(734567,'giacomo','leopardi','19-04-05','Milano');
+INSERT INTO regista(id_regista,nome,cognome,data_nascita,luogo_nascita)
+    VALUES(948392,'pippo','pincopallo','1980-10-10','modena');
+
+INSERT INTO attore(id_attore,nome,cognome,data_nascita,luogo_nascita)
+VALUES(755521,'franco','pippo','1989-10-10','palermo');
+INSERT INTO attore(id_attore,nome,cognome,data_nascita,luogo_nascita)
+VALUES(755529,'alessandro','frivo','1989-05-01','new york');
+INSERT INTO attore(id_attore,nome,cognome,data_nascita,luogo_nascita)
+VALUES(256556,'ciccio','anamp','2000-10-05','catania');
+
+INSERT INTO film(id_film,titolo,anno_prod,nazionalita,lingua,id_regista_FK)
+VALUES(110011,'avengers',2019,'usa','inglese',748392);
+INSERT INTO film(id_film,titolo,anno_prod,nazionalita,lingua,id_regista_FK)
+VALUES(675486,'pirates of carribean',2009,'usa','inglese',734567);
+INSERT INTO film(id_film,titolo,anno_prod,nazionalita,lingua,id_regista_FK)
+VALUES(906348,'il primo natale',2019,'italia','italiano',948392);
+   
+INSERT INTO supporto(id_supporto,posizione,id_film_FK)
+VALUES(123456,'azione',110011);
+INSERT INTO supporto(id_supporto,posizione,id_film_FK)
+VALUES(248569,'avventura',675486);
+INSERT INTO supporto(id_supporto,posizione,id_film_FK)
+VALUES(277654,'commedia',906348);
+
+INSERT INTO attore_film(id_attore_film,id_film_FK,id_attore_FK)
+VALUES(323223,110011,755521);
+INSERT INTO attore_film(id_attore_film,id_film_FK,id_attore_FK)
+VALUES(236765,675486,755529);
+INSERT INTO attore_film(id_attore_film,id_film_FK,id_attore_FK)
+VALUES(397649,906348,256556);

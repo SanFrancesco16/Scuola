@@ -1,0 +1,60 @@
+CREATE DATABASE agenziaviaggi;
+CREATE TABLE cliente ( 
+    id_cliente varchar(7), 
+    nome varchar(12), 
+    cognome varchar(12), 
+    indirizzo varchar(30), 
+    PRIMARY KEY (id_cliente) 
+);
+CREATE TABLE pacchetto( 
+    id_pacchetto varchar(10), 
+    durata varchar(25), 
+    prezzo varchar(9), 
+    PRIMARY KEY (id_pacchetto) 
+);
+CREATE TABLE acquisto( 
+    id_acquisto varchar(7), 
+    data date, 
+    Tipo_pagamento varchar(20),
+    id_cliente_FK varchar(10),
+    id_pacchetto_FK varchar(10),
+    PRIMARY KEY (id_acquisto),
+    FOREIGN KEY (id_cliente_FK) REFERENCES cliente(id_cliente),
+    FOREIGN KEY (id_pacchetto_FK) REFERENCES pacchetto(id_pacchetto)
+);
+
+CREATE TABLE destinazione( 
+    id_destinazione varchar(10), 
+    clima varchar(20), 
+    id_pacchetto_FK varchar(10),
+    PRIMARY KEY (id_destinazione),
+    FOREIGN KEY (id_pacchetto_FK) REFERENCES pacchetto(id_pacchetto)
+);
+INSERT INTO cliente(id_cliente,nome,cognome,indirizzo)
+VALUES ('KO0','gino','pippo','via plutone');
+INSERT INTO cliente(id_cliente,nome,cognome,indirizzo)
+VALUES ('KO1','alessio','mercati','via plutone');
+INSERT INTO cliente(id_cliente,nome,cognome,indirizzo)
+VALUES ('KO2','gino','formaggino','via lattea');
+
+INSERT INTO pacchetto(id_pacchetto,durata,prezzo)
+VALUES ('AA1','3 giorni','1300€');
+INSERT INTO pacchetto(id_pacchetto,durata,prezzo)
+VALUES ('AA2','7 giorni','500€');
+INSERT INTO pacchetto(id_pacchetto,durata,prezzo)
+VALUES ('AA3','9 giorni','950€');
+
+INSERT INTO acquisto(id_acquisto,data,Tipo_pagamento,id_cliente_FK,id_pacchetto_FK)
+VALUES ('AF1','2020-06-02','carta di credito','KO0','AA1');
+INSERT INTO acquisto(id_acquisto,data,Tipo_pagamento,id_cliente_FK,id_pacchetto_FK)
+VALUES ('AF2','2019-01-01','carta di credito','KO1','AA2');
+INSERT INTO acquisto(id_acquisto,data,Tipo_pagamento,id_cliente_FK,id_pacchetto_FK)
+VALUES ('ACH','2018-03-06','contanti','KO2','AA3');
+
+INSERT INTO destinazione(id_destinazione,clima,id_pacchetto_FK)
+VALUES ('225','nuvoloso','AA1');
+INSERT INTO destinazione(id_destinazione,clima,id_pacchetto_FK)
+VALUES ('4F5','soleggiato','AA2');
+INSERT INTO destinazione(id_destinazione,clima,id_pacchetto_FK)
+VALUES ('JKL','neve','AA3');
+

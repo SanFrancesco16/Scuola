@@ -1,0 +1,82 @@
+CREATE DATABASE agenzie_e_filiali;
+CREATE TABLE filiale(
+    ID_PK varchar(10) PRIMARY KEY,
+    citta varchar(10)
+);
+CREATE TABLE agenzie(
+    ID_PK varchar(10) PRIMARY KEY,
+    indirizzo varchar(20)
+);
+CREATE TABLE contocorrente(
+    id_cc_PK varchar(27),
+    PRIMARY KEY (id_cc_PK)
+);
+CREATE TABLE dipendente(
+    nome varchar(12),
+    cognome varchar(12),
+    CF_PK varchar(16) PRIMARY KEY,
+    ID_filiale_FK varchar(10),
+    ID_agenzia_FK varchar(10),
+	FOREIGN KEY(ID_filiale_FK) REFERENCES filiale(ID_PK),
+	FOREIGN KEY(ID_agenzia_FK) REFERENCES agenzie(ID_PK)
+);
+CREATE TABLE qualifica(
+    ID_PK varchar(10) PRIMARY KEY,
+    CF_dipendente_FK varchar(16),
+    descrizione varchar(100),
+	FOREIGN KEY(CF_dipendente_FK) REFERENCES dipendente(CF_PK)
+);
+CREATE TABLE persona(
+    nome varchar(12),
+    cognome varchar(12),
+    data_nascita date,
+    CF_PK varchar(16) PRIMARY KEY,
+	CF_dipendente_FK varchar(16),
+	FOREIGN KEY(CF_dipendente_FK) REFERENCES dipendente(CF_PK)
+);
+                
+INSERT INTO filiale(ID_PK, citta)
+VALUES ('F01', 'Roma');
+INSERT INTO filiale(ID_PK, citta)
+VALUES ('F02', 'Modena');
+INSERT INTO filiale(ID_PK, citta)
+VALUES ('F03', 'Cesena');
+
+INSERT INTO agenzie(ID_PK, indirizzo)
+VALUES ('B01', 'Via Pippo Giannino');
+INSERT INTO agenzie(ID_PK, indirizzo)
+VALUES ('B02', 'Via Gianni Peppino');
+INSERT INTO agenzie(ID_PK, indirizzo)
+VALUES ('B03', 'Via Cerra');
+                         
+INSERT INTO contocorrente(id_cc_PK)
+VALUES ('C05');
+INSERT INTO contocorrente(id_cc_PK)
+VALUES ('OA6');
+INSERT INTO contocorrente(id_cc_PK)
+VALUES ('IA3');
+           
+INSERT INTO dipendente(nome, cognome, CF_PK, ID_filiale_FK, ID_agenzia_FK)
+VALUES ('Gianni', 'Gialloini', 'GLLGNN88E03H501C', 'F01', 'B01');
+INSERT INTO dipendente(nome, cognome, CF_PK, ID_filiale_FK, ID_agenzia_FK)
+VALUES ('Gianna', 'Gialloni', 'GNNGLN80E45H501G', 'F02', 'B02');
+INSERT INTO dipendente(nome, cognome, CF_PK, ID_filiale_FK, ID_agenzia_FK)
+VALUES ('Alessio', 'Frivo', 'LSSFRV97E03H501C', 'F03', 'B03');
+
+INSERT INTO qualifica(ID_PK, CF_dipendente_FK, descrizione)
+VALUES ('890','GLLGNN88E03H501C','Responsabile');
+INSERT INTO qualifica(ID_PK, CF_dipendente_FK, descrizione)
+VALUES ('78H','GNNGLN80E45H501G','Dipendente');
+INSERT INTO qualifica(ID_PK, CF_dipendente_FK, descrizione)
+VALUES ('4RE','LSSFRV97E03H501C','Capo progetto');
+                                 
+INSERT INTO persona(nome, cognome, data_nascita, CF_PK, CF_dipendente_FK) 
+VALUES ('ciccio', 'russo', '1966-05-05', 'RSSCCC66E05H501G', 'GLLGNN88E03H501C');
+INSERT INTO persona(nome, cognome, data_nascita, CF_PK, CF_dipendente_FK) 
+VALUES ('pippo', 'pluto', '1996-01-01', 'PLTPPP96A01H501F','GNNGLN80E45H501G');
+INSERT INTO persona(nome, cognome, data_nascita, CF_PK, CF_dipendente_FK) 
+VALUES ('alessandro','ciao','1999-07-03','CIALSN99L03H501H','LSSFRV97E03H501C');
+INSERT INTO contocorrente(id_cc_PK) 
+VALUES ('IT96W0585611601050570111111');
+
+

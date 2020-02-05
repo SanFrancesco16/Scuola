@@ -1,0 +1,84 @@
+CREATE DATABASE ospedale;
+CREATE TABLE reparto(
+    id varchar(7),
+    nome varchar(12),
+    PRIMARY KEY (id)
+);
+CREATE TABLE paziente(
+    codice varchar(7),
+    nome varchar(12),
+    cognome varchar(12),
+    CF varchar(16),
+    data_nascita date,
+    luogo_nascita varchar(10),
+    sesso char(1),
+    data_ricovero date,
+    PRIMARY KEY (codice)    
+);
+CREATE TABLE medico(
+    codice varchar(7),
+    nome varchar(12),
+    cognome varchar(12),
+    data date,
+    luogo_nascita varchar(20),
+    id_FK varchar(7),
+    FOREIGN KEY (id_FK) REFERENCES reparto(id),
+    PRIMARY KEY (codice)
+);
+CREATE TABLE visita(
+    codice1_FK varchar(7),
+    codice_FK varchar(7),
+    data date,
+    esito varchar(10),
+    id varchar(7),
+    FOREIGN KEY (codice_FK) REFERENCES paziente(codice),
+    FOREIGN KEY (codice1_FK) REFERENCES medico(codice),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE esame(
+    id varchar(7),
+    tipo varchar(40),
+    data date,
+    esito varchar(10),
+    codice_FK varchar(7),
+    FOREIGN KEY (codice_FK) REFERENCES paziente(codice),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO reparto(id,nome)
+VALUES('1234567','prelievi');
+INSERT INTO reparto(id,nome)
+VALUES('123F567','bambini');
+INSERT INTO reparto(id,nome)
+VALUES('1234C67','cardiologia');
+
+INSERT INTO paziente(codice,nome,cognome,CF,data_nascita,luogo_nascita,sesso)
+VALUES ('FF3','pippo','pluto','PLTPPP80A01H501X', '1980-01-01','Roma','M');
+INSERT INTO paziente(codice,nome,cognome,CF,data_nascita,luogo_nascita,sesso)
+VALUES ('FF4','gianna','paola','PLAGNN93C45H501Q', '1993-03-05','Roma','F');
+INSERT INTO paziente(codice,nome,cognome,CF,data_nascita,luogo_nascita,sesso)
+VALUES ('FF5','paolo','rinaldi','RNLPLA80A01H501G', '1980-01-01','Roma','M');
+
+INSERT INTO medico(codice,nome,cognome,data,luogo_nascita,id_FK)
+VALUES ('01F','filippo','gugliara','1996-07-01','Roma','1234567');
+INSERT INTO medico(codice,nome,cognome,data,luogo_nascita,id_FK)
+VALUES ('21F','pippo','poopo','1976-07-01','Roma','123F567');
+INSERT INTO medico(codice,nome,cognome,data,luogo_nascita,id_FK)
+VALUES ('02F','cici','ciuri','1986-07-01','Roma','1234C67');
+
+INSERT INTO visita(codice1_FK,codice_FK,data,esito,id)
+VALUES ('01F','FF3','2019-08-01','positivo','26FR');
+INSERT INTO visita(codice1_FK,codice_FK,data,esito,id)
+VALUES ('21F','FF4','2020-09-01','positivo','GH90');
+INSERT INTO visita(codice1_FK,codice_FK,data,esito,id)
+VALUES ('02F','FF5','2020-06-05','posotivo','5856');
+
+INSERT INTO esame(id,tipo,data,esito,codice_FK)
+VALUES ('233','coronavirus','2020-12-12','negativo','FF3');
+INSERT INTO esame(id,tipo,data,esito,codice_FK)
+VALUES ('345E','malaria','2016-05-06','negativo','FF4');
+INSERT INTO esame(id,tipo,data,esito,codice_FK)
+VALUES ('EEEEI','HIV','2019-06-02','positivo','FF5');
+
+

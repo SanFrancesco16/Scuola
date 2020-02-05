@@ -1,0 +1,99 @@
+CREATE DATABASE consorsioooo;
+CREATE TABLE cliente(
+    id_cliente int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    tipo int(1)    
+);
+CREATE TABLE localita(
+    id_localita int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    sigla char(2)
+);
+CREATE TABLE caseificio(
+    id_caseificio int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    indirizzo varchar(20),
+    titolare varchar(20),
+    telefono varchar(20),
+    email varchar(20),
+    latitudine double,
+    longitudine double,
+    id_localita_FK int(6),
+    FOREIGN KEY (id_localita_FK) REFERENCES localita(id_localita)
+);
+CREATE TABLE forme(
+    id_forma int(6) PRIMARY KEY AUTO_INCREMENT,
+    progressivo int(6),
+    data date,
+    stagionatura int(6),
+    scelta int(1),
+    giorno int(2),
+    mese int(2),
+    anno int(4),
+    id_cliente_FK int(6),
+    id_caseificio_FK int(6),
+    FOREIGN KEY (id_cliente_FK) REFERENCES cliente(id_cliente),
+    FOREIGN KEY (id_caseificio_FK) REFERENCES caseificio(id_caseificio)
+);
+CREATE TABLE attivita(
+    id_attivita int(6) PRIMARY KEY AUTO_INCREMENT,
+    latte_lavorato int(8),
+    latte_impiegato int(8),
+    forme_prodotte_prima int(8),
+    forme_prodotte_seconda int(8),
+    forme_prodotte int(4),    
+    forme_vendute int(4),
+    data date,
+    id_caseificio_FK int(6),
+    FOREIGN KEY (id_caseificio_FK) REFERENCES caseificio(id_caseificio)
+    );
+CREATE TABLE immagini(
+    id_immagine int(6) PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    id_caseificio_FK int(6),
+    FOREIGN KEY (id_caseificio_FK) REFERENCES caseificio(id_caseificio)
+    );
+
+INSERT INTO cliente(id_cliente,nome,tipo)
+	VALUES(660982,'paolo',1);
+INSERT INTO cliente(id_cliente,nome,tipo)
+	VALUES(660256,'pietro',1);
+INSERT INTO cliente(id_cliente,nome,tipo)
+	VALUES(372922,'pluto',1);
+
+INSERT INTO localita(id_localita,nome,sigla)
+	VALUES(123456,'roma','RM');
+INSERT INTO localita(id_localita,nome,sigla)
+	VALUES(678901,'milano','MI');
+INSERT INTO localita(id_localita,nome,sigla)
+	VALUES(253980,'modena','MO');
+
+INSERT INTO caseificio(id_caseificio,nome,indirizzo,titolare,telefono,email,latitudine,longitudine,id_localita_FK)
+	VALUES(261048,'caseificioP','via giovanni','pippo','3334445567','pippo@gmail.com',445734,452366,123456);
+INSERT INTO caseificio(id_caseificio,nome,indirizzo,titolare,telefono,email,latitudine,longitudine,id_localita_FK)
+	VALUES(264738,'caseificioG','via giuseppe','giovanni','3335469567','giovanni@gmail.com',444745,452324,678901);
+INSERT INTO caseificio(id_caseificio,nome,indirizzo,titolare,telefono,email,latitudine,longitudine,id_localita_FK)
+	VALUES(032628,'caseificioV','via valle','gino','333372999','gino@gmail.com',986534,436366,253980);
+
+INSERT INTO forme(id_forma,progressivo,data,stagionatura,scelta,giorno,mese,anno,id_cliente_FK,id_caseificio_FK)
+       VALUES(789789,987654,'2019-04-04',12,2,02,02,20,660982,261048);
+INSERT INTO forme(id_forma,progressivo,data,stagionatura,scelta,giorno,mese,anno,id_cliente_FK,id_caseificio_FK)
+       VALUES(098765,234567,'2019-02-03',12,2,02,02,20,660256,264738);
+INSERT INTO forme(id_forma,progressivo,data,stagionatura,scelta,giorno,mese,anno,id_cliente_FK,id_caseificio_FK)
+       VALUES(271823,987654,'2019-04-06',12,1,02,02,20,372922,032628);
+
+INSERT INTO attivita
+(id_attivita,latte_lavorato,latte_impiegato,forme_prodotte_prima,forme_prodotte_seconda,forme_prodotte,forme_vendute,data,id_caseificio_FK)
+VALUES(432753,00002500,00002500,30,43,73,70,'2019-05-05',261048);
+INSERT INTO attivita(id_attivita,latte_lavorato,latte_impiegato,forme_prodotte_prima,forme_prodotte_seconda,forme_prodotte,forme_vendute,data,id_caseificio_FK)
+VALUES(345732,00004500,00003500,35,43,78,71,'2019-04-06',264738);
+INSERT INTO attivita(id_attivita,latte_lavorato,latte_impiegato,forme_prodotte_prima,forme_prodotte_seconda,forme_prodotte,forme_vendute,data,id_caseificio_FK)
+VALUES(432953,00005500,00005500,40,43,83,69,'2019-09-09',032628);
+
+INSERT INTO immagini(id_immagine,nome,id_caseificio_FK)
+VALUES(830012,'caseificioP',261048);
+INSERT INTO immagini(id_immagine,nome,id_caseificio_FK)
+VALUES(300800,'caseificioG',264738);
+INSERT INTO immagini(id_immagine,nome,id_caseificio_FK)
+VALUES(456008,'caseificioV',032628);
+
