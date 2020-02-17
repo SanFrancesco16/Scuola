@@ -1,0 +1,6 @@
+CREATE DATABASE videoteca;
+CREATE TABLE film(
+  codicefilm int(6) PRIMARY KEY AUTOINCREMENT;
+  titolo varchar(30),
+  trama varchar(120)
+);
