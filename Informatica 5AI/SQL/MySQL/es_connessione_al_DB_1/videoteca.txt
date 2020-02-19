@@ -1,0 +1,12 @@
+CREATE DATABASE videoteca;
+CREATE TABLE film(
+	codicefilm int(6) PRIMARY KEY AUTO_INCREMENT,
+	titolo varchar(30),
+	trama varchar(120)
+);
+INSERT INTO film(codicefilm,titolo,trama)
+VALUES (11,'Avengers','gli eroi piu potenti ella terra');
+INSERT INTO film(codicefilm,titolo,trama)
+VALUES (10,'Pirati Dei Caraibi','la maledizione della prima luna');
+INSERT INTO film(codicefilm,titolo,trama)
+VALUES (9,'Guardiani della galassia','volume 1');
