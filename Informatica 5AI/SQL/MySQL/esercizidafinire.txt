@@ -1,0 +1,89 @@
+DROP DATABASE test;
+CREATE DATABASE test;
+USE test;
+
+CREATE TABLE Auto(
+    id_auto int(6),
+    modello varchar(20),
+    prezzo int(10),
+	targa varchar(20),
+	cilindrata varchar(20),
+	colore varchar(20)
+);
+CREATE TABLE TModello(
+    id_TModello int(6),
+    nomeModello varchar(20),
+    marca varchar(20)
+);
+
+INSERT INTO Auto(id_auto, modello, prezzo,targa,cilindrata,colore)
+VALUES (001,'Panda',9000,'XB022OP','150cm^3','blu');
+INSERT INTO Auto(id_auto, modello, prezzo,targa,cilindrata,colore)
+VALUES (002,'Renegade',15000,'FB022OP','50cm^3','rosso');
+INSERT INTO Auto(id_auto, modello, prezzo,targa,cilindrata,colore)
+VALUES (003,'Clio',6000,'YT023PH','240cm^3','giallo');
+INSERT INTO Auto(id_auto, modello, prezzo,targa,cilindrata,colore)
+VALUES (004,'Xsara',12000,'FB121AD','2500cm^3','bianco');
+
+
+
+INSERT INTO TModello(id_TModello,nomeModello,marca) 
+VALUES (586,'Panda','Fiat');
+INSERT INTO TModello(id_TModello,nomeModello,marca) 
+VALUES (698,'500X','Fiat');
+INSERT INTO TModello(id_TModello,nomeModello,marca) 
+VALUES (966,'Renegade','Jeep');
+
+/*stampa il numero totale della auto*/
+SELECT COUNT(*) AS numero
+FROM auto;
+
+/*visualizza la media dei prezzi, il prezzo massimo e il minimo*/
+SELECT AVG(prezzo), MAX(prezzo), MIN(prezzo)
+FROM auto;
+
+/*visualizza la somma dei prezzi delle auto Fiat*/
+SELECT SUM(prezzo) AS somma
+FROM Auto,TModello
+WHERE Auto.modello=TModello.nomeModello
+AND TModello.marca='Fiat';
+
+/*visualizza la targa, il modello e il prezzo per tutte le auto la cui targa presenta la lettera B in seconda posizione*/
+SELECT targa,modello,prezzo 
+FROM Auto
+WHERE targa LIKE '_B%';
+
+/*visualizza la targa, il modello e il prezzo delle auto che costano tra i 10000 e i 13000 euro*/
+SELECT targa,modello,prezzo
+FROM Auto
+WHERE prezzo BETWEEN 10000 AND 13000;
+
+/*visualizza tutte le cilindrate presenti nel database*/
+SELECT DISTINCT(cilindrata)
+FROM Auto;
+
+/*visualizza la targa, il modello e il colore per tutte le auto di modello Xsara,Punto,Clio ordinate per targa*/
+SELECT targa,modello,colore
+FROM Auto
+/*l'"IN" permette di vedere i dati di diversi record*/
+WHERE modello IN ('Xsara','Punto','Clio')
+ORDER BY targa;
+
+/*visualizza la targa, il modello, il prezzo e il prezzo in dollari di tutte le Clio con prezzo maggiore di 1200*/
+SELECT targa,modello,prezzo AS euro,prezzo*1.17 AS dollari
+FROM Auto
+WHERE modello='Clio'
+AND prezzo > 1200;
+
+/*visualizza la targa, il mdello, il prezzo e il prezzo aumentato del 10% per tutte le auto con la lettera B in seconda
+posizione nella targa, che sono blu o rosse e che hanno il prezzo tra i 10000 e i 20000*/
+SELECT targa,modello,prezzo,(prezzo+prezzo*10/100) AS prezzo_umentato
+FROM Auto
+WHERE targa LIKE '_B%' 
+AND colore='blu' OR colore='rosso'
+AND prezzo BETWEEN 10000 AND 20000; 
+
+/*genera la tabella TABPunto contenente le targhe delle auto di modello Punto*/
+SELECT targa,modello INTO TabPunto
+FROM Auto
+WHERE modello='Punto';
